@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цагдаа ба Хулгайч - Лобби</title>
+    <!-- PeerJS холболтын сан -->
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>👮‍♂️ Цагдаа ба Хулгайч 🕵️‍♂️</h1>
+        <p class="subtitle">Хамгийн бага оноо авсан тоглогч бусад тоглогчдын олонхын саналаар шийтгүүлнэ! 🥟🔥</p>
+
+        <!-- Нэвтрэх хэсэг -->
+        <div id="login-section" class="card">
+            <input type="text" id="username-input" placeholder="Тоглогчийн нэрээ оруулна уу..." maxlength="15">
+            <div class="btn-group">
+                <button id="create-room-btn" class="btn primary">Өрөө үүсгэх</button>
+                <button id="join-room-modal-btn" class="btn secondary">Өрөөнд орох</button>
+            </div>
+        </div>
+
+        <!-- Өрөөний код оруулах модал хэсэг -->
+        <div id="join-modal" class="card hidden">
+            <h3>Найзынхаа өрөөний кодыг оруулна уу</h3>
+            <input type="text" id="room-code-input" placeholder="Жишээ нь: room-abc12">
+            <div class="btn-group">
+                <button id="connect-btn" class="btn primary">Холбогдох</button>
+                <button id="back-btn" class="btn danger">Буцах</button>
+            </div>
+        </div>
+
+        <!-- Лобби хэсэг -->
+        <div id="lobby-section" class="card hidden">
+            <h2>Лобби (<span id="player-count">0</span>/10)</h2>
+            <p id="room-info" class="room-code-display"></p>
+            
+            <div class="player-list-container">
+                <h3>Тоглогчид:</h3>
+                <ul id="player-list"></ul>
+            </div>
+
+            <div class="btn-group">
+                <button id="ready-btn" class="btn warning">Бэлэн (Ready)</button>
+                <button id="start-game-btn" class="btn primary hidden">Тоглоом эхлүүлэх</button>
+            </div>
+        </div>
+
+        <!-- Тоглоомын үндсэн хэсэг -->
+        <div id="game-section" class="card hidden">
+            <h2>🎮 Тоглоом эхэллээ!</h2>
+            <div id="role-display" class="role-box">Таны дүр: Тодорхойгүй</div>
+            
+            <div class="game-board">
+                <p>Энд тоглоомын үйл явц явагдана...</p>
+                <button id="action-btn" class="btn primary">Үйлдэл хийх</button>
+            </div>
+
+            <!-- Чат хэсэг -->
+            <div class="chat-container">
+                <div id="chat-messages"></div>
+                <div class="chat-input-group">
+                    <input type="text" id="chat-input" placeholder="Зурвас бичих...">
+                    <button id="send-chat-btn" class="btn secondary">Илгээх</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
